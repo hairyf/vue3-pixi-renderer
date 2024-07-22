@@ -1,8 +1,12 @@
-import { Sprite } from 'pixi.js'
+import type { ContainerOptions } from 'pixi.js'
+import { Container } from 'pixi.js'
 
-export class Empty extends Sprite {
-  render() {}
-  visible = false
-  renderable = false
+export class Empty extends Container {
+  constructor(options?: ContainerOptions) {
+    super(options)
+    this.visible = false
+    this.renderable = false
+  }
+
   _vp_empty = true
 }

@@ -3,11 +3,11 @@ import type {
   DefineComponent,
   VNodeProps,
 } from 'vue-demi'
-import type { DisplacementFilter, ISpriteMaskTarget } from 'pixi.js'
+import type { DisplacementFilter, Sprite } from 'pixi.js'
 import type { AllowedFilterProps, ExtractFilterProps } from './props'
 
 export interface DisplacementFilterProps extends ExtractFilterProps<DisplacementFilter> {
-  sprite: ISpriteMaskTarget
+  sprite: Sprite
 }
 
 export interface DisplacementFilterEvents {

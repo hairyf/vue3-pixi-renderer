@@ -15,7 +15,7 @@ export const External = defineComponent({
     const pixiApp = ref(inject(appInjectKey)!)
     const childApp = ref<App>()
 
-    const root = props.root || pixiApp.value.view.parentNode as HTMLElement
+    const root = props.root || pixiApp.value.canvas.parentNode as HTMLElement
 
     function mount() {
       if (!root)

@@ -6,14 +6,13 @@ import type {
 import type * as PIXI from 'pixi.js'
 import type { AllowedPixiProps } from './props'
 import type { PixiEvents } from './events'
-
 export interface BitmapTextProps {
   text?: string | number
-  style?: Partial<PIXI.IBitmapTextStyle>
+  style?: Partial<PIXI.TextStyle>
 
   align?: string
 
-  anchor?: PIXI.IPointData | number
+  anchor?: Partial<PIXI.PointData> | number
   anchorX?: number
   anchorY?: number
 

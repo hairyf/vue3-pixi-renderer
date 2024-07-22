@@ -107,7 +107,7 @@ The Vue Plugin detects any texture props containing the path to an image and rep
 - [SimplePlane](http://pixijs.download/release/docs/PIXI.SimplePlane.html)
 - [TilingSprite](http://pixijs.download/release/docs/PIXI.TilingSprite.html)
 - [NineSlicePlane](http://pixijs.download/release/docs/PIXI.NineSlicePlane.html)
-- [SimpleRope](http://pixijs.download/release/docs/PIXI.SimpleRope.html)
+- [MeshRope](http://pixijs.download/release/docs/PIXI.MeshRope.html)
 - [Mesh](http://pixijs.download/release/docs/PIXI.AnimatedSprite.html)
 
 ## Props

@@ -1,8 +1,7 @@
 /* eslint-disable vue/one-component-per-file */
-import { defineComponent, getCurrentInstance, h, markRaw, onMounted, onUnmounted, ref, renderSlot, warn, watch } from 'vue-demi'
-import { throttle } from '@antfu/utils'
+import { defineComponent, getCurrentInstance, h, markRaw, onMounted, onUnmounted, ref, renderSlot } from 'vue-demi'
 import { Application as _Application } from 'pixi.js'
-import type { ColorSource, Container } from 'pixi.js'
+import type { ColorSource, Container, GpuPowerPreference } from 'pixi.js'
 import type { App, PropType } from 'vue-demi'
 import { createApp } from '../../renderer'
 import { appInjectKey } from '../../composables'
@@ -15,60 +14,51 @@ export interface ApplicationInst {
 
 export const Application = defineComponent({
   props: {
-    antialias: { type: Boolean, default: true },
-    autoDensity: { type: Boolean, default: true },
+    antialias: { type: Boolean, default: undefined },
+    autoDensity: { type: Boolean, default: undefined },
     autoStart: { type: Boolean, default: true },
-    background: [Number, String, Array] as PropType<ColorSource>,
-    backgroundColor: [Number, String, Array] as PropType<ColorSource>,
+    alpha: { type: Boolean, default: undefined },
+    backgroundColor: [Number, String, Array, Object] as PropType<ColorSource>,
     backgroundAlpha: { type: Number, default: 1 },
-    clearBeforeRender: { type: Boolean, default: true },
-    forceCanvas: Boolean,
-    alpha: Number,
-    depth: Boolean,
-    desynchronized: Boolean,
-    failIfMajorPerformanceCaveat: Boolean,
-    powerPreference: String as PropType<WebGLPowerPreference>,
-    premultipliedAlpha: Boolean,
-    preserveDrawingBuffer: Boolean,
-    stencil: { type: Boolean, default: true },
-    width: Number,
-    height: Number,
-    resolution: Number,
+    clearBeforeRender: { type: Boolean, default: undefined },
+    hello: { type: Boolean, default: undefined },
+    textureGCActive: { type: Boolean, default: undefined },
+    textureGCAMaxIdle: { type: Number, default: undefined },
+    textureGCCheckCountMax: { type: Number, default: undefined },
+    bezierSmoothness: { type: Number, default: undefined },
+    premultipliedAlpha: { type: Boolean, default: undefined },
+    preserveDrawingBuffer: { type: Boolean, default: undefined },
+    forceFallbackAdapter: { type: Boolean, default: undefined },
+    depth: { type: Boolean, default: undefined },
+    failIfMajorPerformanceCaveat: { type: Boolean, default: undefined },
+    powerPreference: { type: String as PropType<GpuPowerPreference>, default: undefined },
     resizeTo: Object as PropType<HTMLElement | Window | undefined>,
+    roundPixels: { type: Boolean, default: undefined },
+    useBackBuffer: { type: Boolean, default: undefined },
+    width: { type: Number, default: undefined },
+    height: { type: Number, default: undefined },
+    resolution: { type: Number, default: 1 },
+
+    // @TODO: Add webgl/webgpu
   },
   setup(props, { slots, expose }) {
     const { appContext } = getCurrentInstance()!
     const canvas = ref<HTMLCanvasElement>()
-    const pixiApp = ref()
+    const pixiApp = ref<_Application>()
 
     let app: App<Container> | undefined
 
-    function mount() {
-      const context = canvas.value?.getContext('webgl', {
-        alpha: props.alpha,
-        antialias: props.antialias,
-        depth: props.depth,
-        desynchronized: props.desynchronized,
-        failIfMajorPerformanceCaveat: props.failIfMajorPerformanceCaveat,
-        powerPreference: props.powerPreference,
-        premultipliedAlpha: props.premultipliedAlpha,
-        preserveDrawingBuffer: props.preserveDrawingBuffer,
-        stencil: props.stencil,
-      })
+    async function mount() {
+      const inst = new _Application()
+      await inst.init({ canvas: canvas.value, ...props })
 
-      if (!context)
-        warn('could not crate webgl context')
-
-      const inst = new _Application({ view: canvas.value, ...props })
       pixiApp.value = markRaw(inst)
 
-      app = createApp({
-        render: () => renderSlot(slots, 'default'),
-      })
+      app = createApp({ render: () => renderSlot(slots, 'default') })
 
       inheritParent(app, appContext)
 
-      app.provide(appInjectKey, pixiApp)
+      app.provide(appInjectKey, pixiApp.value)
       app.mount(pixiApp.value.stage)
     }
     function unmount() {
@@ -78,18 +68,6 @@ export const Application = defineComponent({
       pixiApp.value?.destroy()
       pixiApp.value = undefined
     }
-    function resize() {
-      if (!pixiApp.value)
-        return
-      const width = props.width || pixiApp.value.renderer.width
-      const height = props.height || pixiApp.value.renderer.height
-      pixiApp.value.renderer.resize(width, height)
-    }
-
-    watch(
-      () => [props.width, props.height],
-      throttle(50, resize),
-    )
     onMounted(mount)
     onUnmounted(unmount)
 

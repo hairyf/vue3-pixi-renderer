@@ -14,7 +14,7 @@ Currently, the following PixiJS objects are supported out of the box:
 - [SimplePlane](http://pixijs.download/release/docs/PIXI.SimplePlane.html)
 - [TilingSprite](http://pixijs.download/release/docs/PIXI.TilingSprite.html)
 - [NineSlicePlane](http://pixijs.download/release/docs/PIXI.NineSlicePlane.html)
-- [SimpleRope](http://pixijs.download/release/docs/PIXI.SimpleRope.html)
+- [MeshRope](http://pixijs.download/release/docs/PIXI.MeshRope.html)
 - [Mesh](http://pixijs.download/release/docs/PIXI.AnimatedSprite.html)
 - [BlurFilter](https://pixijs.download/release/docs/PIXI.BlurFilter.html)
 - [AlphaFilter](https://pixijs.download/release/docs/PIXI.AlphaFilter.html)

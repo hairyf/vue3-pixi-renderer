@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Container, DisplayObject } from 'pixi.js'
+import type { Container } from 'pixi.js'
 
 import type { Renderer as _Renderer } from 'vue-demi'
 import { createRenderer as _createRenderer } from 'vue-demi'
@@ -9,7 +9,8 @@ import { nodeOps as _nodeOps } from './nodeOps'
 import type { use } from './internal'
 import { rendererWithCapture, rendererWithOptions } from './internal'
 
-export interface VuePIXIRenderer<T = Container<DisplayObject>> extends _Renderer<T> {
+export interface VuePIXIRenderer<T = Container<Container>>
+  extends _Renderer<T> {
   use: typeof use
 }
 

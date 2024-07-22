@@ -9,11 +9,7 @@ import type { PixiEvents } from './events'
 
 export interface GraphicsProps {
   blendMode?: PIXI.BLEND_MODES
-  pluginName?: string
-  shader?: PIXI.Shader
-  tint?: PIXI.ColorSource
-  geometry?: PIXI.GraphicsGeometry
-  isMask?: boolean
+  geometry?: PIXI.GraphicsOptions | PIXI.GraphicsContext
 }
 
 export interface GraphicsEvents extends PixiEvents {

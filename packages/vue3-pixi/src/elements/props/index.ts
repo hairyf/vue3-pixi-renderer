@@ -4,8 +4,7 @@ import type {
   EventMode,
   Filter,
   IHitArea,
-  IPointData,
-  MaskData,
+  PointData,
   Rectangle,
 } from 'pixi.js'
 
@@ -33,21 +32,21 @@ export interface AllowedPixiProps {
   hitArea?: IHitArea
   eventMode?: EventMode
 
-  mask?: Container | MaskData | null
+  mask?: Container | null
 
   name?: string
 
   x?: number
   y?: number
-  position?: Partial<IPointData> | number | [number, number]
+  position?: Partial<PointData> | number | [number, number]
   positionY?: number
   positionX?: number
 
-  anchor?: Partial<IPointData> | number | [number, number]
+  anchor?: Partial<PointData> | number | [number, number]
   anchorX?: number
   anchorY?: number
 
-  pivot?: Partial<IPointData> | number | [number, number]
+  pivot?: Partial<PointData> | number | [number, number]
   pivotX?: number
   pivotY?: number
 
@@ -56,13 +55,13 @@ export interface AllowedPixiProps {
   rotation?: number
   angle?: number
 
-  scale?: Partial<IPointData> | number | [number, number]
+  scale?: Partial<PointData> | number | [number, number]
   scaleX?: number
   scaleY?: number
   width?: number
   height?: number
 
-  skew?: Partial<IPointData> | number | [number, number]
+  skew?: Partial<PointData> | number | [number, number]
   skewX?: number
   skewY?: number
 

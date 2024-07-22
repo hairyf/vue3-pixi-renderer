@@ -9,11 +9,11 @@ import type { PixiEvents } from './events'
 
 export interface TilingSpriteProps {
   texture: string | PIXI.Texture
-  textureOptions?: PIXI.IBaseTextureOptions
+  textureOptions?: PIXI.TextureOptions
   width?: number
   height?: number
 
-  anchor?: PIXI.IPointData | number
+  anchor?: Partial<PIXI.PointData> | number
   anchorX?: number
   anchorY?: number
 
@@ -25,11 +25,11 @@ export interface TilingSpriteProps {
 
   clampMargin?: number
 
-  tilePosition?: Partial<PIXI.IPointData> | number | [number, number]
+  tilePosition?: Partial<PIXI.PointData> | number | [number, number]
   tilePositionX?: number
   tilePositionY?: number
 
-  tileScale?: Partial<PIXI.IPointData> | number | [number, number]
+  tileScale?: Partial<PIXI.PointData> | number | [number, number]
   tileScaleX?: number
   tileScaleY?: number
 

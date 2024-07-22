@@ -13,7 +13,7 @@ Allows you to stretch a texture using 9-slice scaling. The corners will remain u
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | blend-mode | <api-blend-mode /> | `BLEND_MODES.NORMAL` | The blend mode to be applied to the sprite. |
-| draw-mode | <api-draw-mode /> | `DRAW_MODES.TRIANGLES` | The draw mode to be used. |
+| draw-mode | <api-draw-mode /> | `Topology` | The draw mode to be used. |
 | texture | ^[string] ^[object]`PIXI.Texture` | `undefined` | The texture to use on the NineSlicePlane. |
 | left-width | ^[number] | `undefined` | The width of the left column of the grid |
 | right-width | ^[number] | `undefined` | The width of the right column of the grid |

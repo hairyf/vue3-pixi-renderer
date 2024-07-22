@@ -15,13 +15,11 @@ export interface AnimatedSpriteProps extends AllowedPixiProps {
   playing?: boolean
   gotoAndPlay?: number
 
-  anchor?: PIXI.IPointData | number
+  anchor?: Partial<PIXI.PointData> | number
   anchorX?: number
   anchorY?: number
 
   blendMode?: PIXI.BLEND_MODES
-
-  pluginName?: string
 
   tint?: PIXI.ColorSource
 

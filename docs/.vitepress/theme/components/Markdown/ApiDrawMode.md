@@ -1,1 +1,1 @@
-^[number] [DRAW_MODES](https://pixijs.download/release/docs/PIXI.html#DRAW_MODES)
+^[number] [Topology](https://pixijs.download/release/docs/PIXI.html#Topology)

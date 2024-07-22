@@ -12,7 +12,7 @@ The SimplePlane allows you to draw a texture across several points and then mani
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| draw-mode | <api-draw-mode /> | `DRAW_MODES.TRIANGLES` | The draw mode to be used. |
+| draw-mode | <api-draw-mode /> | `Topology` | The draw mode to be used. |
 | texture | ^[string] ^[object]`PIXI.Texture` | `undefined` | The texture to use on the NineSlicePlane. |
 | geometry | ^[object]`PIXI.Geometry` | `undefined` | The geometry to use on the SimplePlane. |
 | vertices | ^[number]`number` | `10` | The number of vertices in the axis |

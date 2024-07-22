@@ -7,14 +7,14 @@ import type * as PIXI from 'pixi.js'
 import type { AllowedPixiProps } from './props'
 import type { PixiEvents } from './events'
 
-export interface SimpleRopeProps {
+export interface MeshRopeProps {
   texture: string | PIXI.Texture
-  points: PIXI.IPoint[]
+  points: PIXI.Point[]
   textureScale?: number
   autoUpdate?: number
-  shader?: PIXI.Shader | PIXI.MeshMaterial
+  shader?: PIXI.Shader
   blendMode?: PIXI.BLEND_MODES
-  drawMode?: PIXI.DRAW_MODES
+  drawMode?: PIXI.Topology
   material?: PIXI.Shader
   roundPixels?: boolean
   size?: number
@@ -24,26 +24,26 @@ export interface SimpleRopeProps {
   canvasPadding?: number
 }
 
-export interface SimpleRopeEvents extends PixiEvents {
-  render: [SimpleRopeInst]
+export interface MeshRopeEvents extends PixiEvents {
+  render: [MeshRopeInst]
 }
 
-export type SimpleRopeInst = PIXI.SimpleRope & EventTarget
+export type MeshRopeInst = PIXI.MeshRope & EventTarget
 
-export type SimpleRopeComponent = DefineComponent<
-SimpleRopeProps,
+export type MeshRopeComponent = DefineComponent<
+MeshRopeProps,
   {},
   unknown,
   {},
   {},
   ComponentOptionsMixin,
   ComponentOptionsMixin,
-  (keyof SimpleRopeEvents)[],
-  keyof SimpleRopeEvents,
+  (keyof MeshRopeEvents)[],
+  keyof MeshRopeEvents,
   VNodeProps & AllowedPixiProps,
-  Readonly<SimpleRopeProps> & {
-    [key in keyof SimpleRopeEvents as `on${Capitalize<key>}`]?:
-    | ((...args: SimpleRopeEvents[key]) => any)
+  Readonly<MeshRopeProps> & {
+    [key in keyof MeshRopeEvents as `on${Capitalize<key>}`]?:
+    | ((...args: MeshRopeEvents[key]) => any)
     | undefined;
   },
   {}

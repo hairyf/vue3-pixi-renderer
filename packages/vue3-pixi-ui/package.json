@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@pixi/ui": "^0.10.5",
-    "pixi.js": "^7.4.2",
+    "pixi.js": "^8.2.5",
     "vue-demi": "^0.14.8",
     "vue3-pixi": "workspace:^"
   },

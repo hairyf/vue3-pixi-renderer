@@ -9,9 +9,9 @@ import type { PixiEvents } from './events'
 
 export interface MeshProps {
   geometry: PIXI.Geometry
-  shader: PIXI.Shader | PIXI.MeshMaterial
+  shader: PIXI.Shader
   blendMode?: PIXI.BLEND_MODES
-  drawMode?: PIXI.DRAW_MODES
+  drawMode?: PIXI.Topology
   material?: PIXI.Shader
   roundPixels?: boolean
   size?: number

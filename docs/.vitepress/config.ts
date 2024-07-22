@@ -78,7 +78,7 @@ const themeConfig: DefaultTheme.Config = {
           { text: 'NineSlicePlane', link: '/guide/elements/nine-slice-plane' },
           { text: 'ParticleContainer', link: '/guide/elements/particle-container' },
           { text: 'SimplePlane', link: '/guide/elements/simple-plane' },
-          { text: 'SimpleRope', link: '/guide/elements/simple-rope' },
+          { text: 'MeshRope', link: '/guide/elements/mesh-rope' },
           { text: 'Sprite', link: '/guide/elements/sprite' },
           { text: 'Text', link: '/guide/elements/text' },
           { text: 'TilingSprite', link: '/guide/elements/tiling-sprite' },

@@ -19,7 +19,7 @@ Pretty much all WebGL can be broken down into the following:
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | blend-mode | <api-blend-mode /> | `BLEND_MODES.NORMAL` | The blend mode to be applied to the sprite. |
-| draw-mode | <api-draw-mode /> | `DRAW_MODES.TRIANGLES` | The draw mode to be used. |
+| draw-mode | <api-draw-mode /> | `Topology` | The draw mode to be used. |
 | geometry | ^[object]`PIXI.Geometry` | `undefined` | The geometry the mesh will use. |
 
 > more props in [Container Props](/guide/elements/container#container-props) and [PIXI.Mesh](https://pixijs.download/release/docs/PIXI.Mesh.html)

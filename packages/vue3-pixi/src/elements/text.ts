@@ -9,11 +9,9 @@ import type { PixiEvents } from './events'
 
 export interface TextProps {
   text?: string | number
-  style?: PIXI.TextStyle | Partial<PIXI.ITextStyle>
+  style?: PIXI.TextStyle | Partial<PIXI.TextStyle>
 
-  canvas?: PIXI.ICanvas
   context?: PIXI.ICanvasRenderingContext2D
-  resolution?: number
 
   width?: number
 }

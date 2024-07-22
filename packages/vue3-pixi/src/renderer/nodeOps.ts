@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { BitmapText, Container, DisplayObject, Filter, Text, Texture } from 'pixi.js'
+import {
+  BitmapText,
+  Container,
+  Filter,
+  Text,
+  Texture,
+} from 'pixi.js'
 import { camelize, markRaw, warn } from 'vue-demi'
 import { isOn } from './utils'
 import { Empty, insertContainer, insertFilter, nextSiblingContainer, nextSiblingFilter, renderers } from './internal'
@@ -21,10 +27,10 @@ export function createElement(prefix: string, name: string, _?: boolean, _1?: st
   }
   const element = is(props ?? {})
 
-  if (element instanceof DisplayObject) {
+  if (element instanceof Container) {
     // @ts-expect-error
     if (isOn(props) && element.eventMode === 'auto')
-    // @ts-expect-error
+      // @ts-expect-error
       element.eventMode = 'static'
   }
 

@@ -4,7 +4,7 @@ import { Assets } from 'pixi.js'
 import type { ExtractPropTypes, PropType } from 'vue-demi'
 import { defineComponent, onBeforeUnmount, ref, renderSlot, watch } from 'vue-demi'
 
-import type { IBaseTextureOptions, Texture, UnresolvedAsset as _UnresolvedAsset } from 'pixi.js'
+import type { Texture, TextureOptions, UnresolvedAsset as _UnresolvedAsset } from 'pixi.js'
 import type { Awaitable } from '@antfu/utils'
 import { isString } from '@antfu/utils'
 import { setTextureOptions } from '../../renderer'
@@ -26,7 +26,7 @@ export const loaderProps = {
     required: true as const,
   },
   options: {
-    type: Object as PropType<IBaseTextureOptions>,
+    type: Object as PropType<TextureOptions>,
     default: () => ({}),
   },
   bundleIds: String,

@@ -20,7 +20,7 @@ onTick(() => {
 </script>
 
 <template>
-  <simple-rope
+  <mesh-rope
     texture="/assets/snake.png"
     :x="20"
     :y="120"

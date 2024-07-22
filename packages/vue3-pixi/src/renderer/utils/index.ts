@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { IBaseTextureOptions } from 'pixi.js'
+import type { TextureOptions } from 'pixi.js'
 
 import { Texture } from 'pixi.js'
 
-export function setTextureOptions(texture: Texture, options: IBaseTextureOptions = {}) {
+export function setTextureOptions(texture: Texture, options: TextureOptions = {}) {
   for (const key in options)
     // @ts-expect-error
     texture.baseTexture[key] = options[key]

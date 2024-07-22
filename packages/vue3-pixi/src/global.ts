@@ -1,8 +1,8 @@
 import '@vue/runtime-core'
 import 'pixi.js'
-import type { SimpleRopeComponent } from './elements/simpleRope'
+import type { MeshRopeComponent } from './elements/meshRope'
 import type { SimplePlaneComponent } from './elements/simplePlane'
-import type { NineSlicePlaneComponent } from './elements/nineSlicePlane'
+import type { NineSliceSpriteComponent } from './elements/NineSliceSprite'
 import type { MeshComponent } from './elements/mesh'
 import type { AnimatedSpriteComponent } from './elements/animatedSprite'
 import type { TilingSpriteComponent } from './elements/tilingSprite'
@@ -16,7 +16,6 @@ import type { BlurFilterComponent } from './elements/blurFilter'
 import type { AlphaFilterComponent } from './elements/alphaFilter'
 import type { DisplacementFilterComponent } from './elements/displacementFilter'
 import type { ColorMatrixFilterComponent } from './elements/colorMatrixFilter'
-import type { FXAAFilterComponent } from './elements/FXAAFilter'
 import type { ParticleContainerComponent } from './elements/particleContainer'
 
 declare module '@vue/runtime-core' {
@@ -69,11 +68,11 @@ declare module '@vue/runtime-core' {
     SimplePlane: SimplePlaneComponent
     PixiSimplePlane: SimplePlaneComponent
 
-    NineSlicePlane: NineSlicePlaneComponent
-    PixiNineSlicePlane: NineSlicePlaneComponent
+    NineSliceSprite: NineSliceSpriteComponent
+    PixiNineSliceSprite: NineSliceSpriteComponent
 
-    SimpleRope: SimpleRopeComponent
-    PixiSimpleRope: SimpleRopeComponent
+    MeshRope: MeshRopeComponent
+    PixiMeshRope: MeshRopeComponent
   }
 }
 
@@ -88,9 +87,9 @@ declare module 'pixi.js' {
   }
 }
 
-export * from './elements/simpleRope'
+export * from './elements/meshRope'
 export * from './elements/simplePlane'
-export * from './elements/nineSlicePlane'
+export * from './elements/nineSliceSprite'
 export * from './elements/mesh'
 export * from './elements/animatedSprite'
 export * from './elements/tilingSprite'
@@ -104,7 +103,6 @@ export * from './elements/blurFilter'
 export * from './elements/alphaFilter'
 export * from './elements/displacementFilter'
 export * from './elements/colorMatrixFilter'
-export * from './elements/FXAAFilter'
 export * from './elements/props'
 export * from './elements/events'
 export * from './elements/particleContainer'

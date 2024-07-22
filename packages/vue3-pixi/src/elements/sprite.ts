@@ -8,7 +8,7 @@ import type { AllowedPixiProps } from './props'
 import type { PixiEvents } from './events'
 export interface SpriteProps extends AllowedPixiProps {
   texture: string | PIXI.Texture
-  textureOptions?: PIXI.IBaseTextureOptions
+  textureOptions?: PIXI.TextureOptions
 
   blendMode?: PIXI.BLEND_MODES
 

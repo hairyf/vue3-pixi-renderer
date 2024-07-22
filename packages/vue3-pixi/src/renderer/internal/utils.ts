@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Container, DisplayObject } from 'pixi.js'
+import type { Container } from 'pixi.js'
 import type { Renderer, RendererOptions } from 'vue-demi'
 import { camelize } from 'vue-demi'
 import { isCustomElement } from '../../compiler'
@@ -36,7 +36,9 @@ export function rendererWithCapture(options: RendererOptions<Container, Containe
   return options
 }
 
-export function rendererWithOptions(renderer: Renderer<Container<DisplayObject>> & Record<string, any>) {
+export function rendererWithOptions(
+  renderer: Renderer<Container<Container>> & Record<string, any>,
+) {
   const _createApp = renderer.createApp
   const _render = renderer.render
   function createApp(...args: any[]) {

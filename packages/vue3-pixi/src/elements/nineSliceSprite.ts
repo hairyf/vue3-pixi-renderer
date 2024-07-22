@@ -7,7 +7,7 @@ import type * as PIXI from 'pixi.js'
 import type { AllowedPixiProps } from './props'
 import type { PixiEvents } from './events'
 
-export interface NineSlicePlaneProps {
+export interface NineSliceSpriteProps {
   texture: PIXI.Texture | string
   leftWidth?: number
   rightWidth?: number
@@ -16,9 +16,9 @@ export interface NineSlicePlaneProps {
   verticesX?: number
   verticesY?: number
 
-  shader?: PIXI.Shader | PIXI.MeshMaterial
+  shader?: PIXI.Shader
   blendMode?: PIXI.BLEND_MODES
-  drawMode?: PIXI.DRAW_MODES
+  drawMode?: PIXI.Topology
   material?: PIXI.Shader
   roundPixels?: boolean
   size?: number
@@ -35,10 +35,10 @@ export interface NineSliceEvents extends PixiEvents {
   render: [NineSliceInst]
 }
 
-export type NineSliceInst = PIXI.NineSlicePlane & EventTarget
+export type NineSliceInst = PIXI.NineSliceSprite & EventTarget
 
-export type NineSlicePlaneComponent = DefineComponent<
-NineSlicePlaneProps,
+export type NineSliceSpriteComponent = DefineComponent<
+  NineSliceSpriteProps,
   {},
   unknown,
   {},
@@ -48,7 +48,7 @@ NineSlicePlaneProps,
   (keyof NineSliceEvents)[],
   keyof NineSliceEvents,
   VNodeProps & AllowedPixiProps,
-  Readonly<NineSlicePlaneProps> & {
+  Readonly<NineSliceSpriteProps> & {
     [key in keyof NineSliceEvents as `on${Capitalize<key>}`]?:
     | ((...args: NineSliceEvents[key]) => any)
     | undefined;
